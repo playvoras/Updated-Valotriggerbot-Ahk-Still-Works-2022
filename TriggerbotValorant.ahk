@@ -25,7 +25,7 @@ key_hold	    :=	"XButton1"
 pixel_box	:=	5
 pixel_sens	:=	50
 pixel_color	:=	0xF144FE
-tap_time	:=	100
+tap_time	:=	90
 
 
 ;Credits: Robin0248?
