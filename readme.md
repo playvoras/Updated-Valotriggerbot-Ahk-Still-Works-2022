@@ -6,11 +6,10 @@
 ## Requirments
 
 ### Resolution: Windowed fullscreen
-### Enemy highlight color: Yellow (3rd in the hightlight color list)
-
+### Enemy highlight color: Purple
 ## How to use
 
-### Press "UP" to activate the cheat.
+### Press "alt" to activate the cheat.
 ### Press "DOWN" to deactivate the cheat.
 ### Press "RIGHT" to activate the hold mode (You need to press mouse button 4 to activate it.)
 ### Press "END" to close the cheat.
