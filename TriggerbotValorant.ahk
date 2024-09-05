@@ -1,4 +1,4 @@
-﻿#NoEnv 
+#NoEnv 
 #persistent
 #MaxThreadsPerHotkey 2
 #KeyHistory 0
@@ -14,7 +14,7 @@ CoordMode, Pixel, Screen
 SoundBeep, 300, 200
 SoundBeep, 400, 200
 
-key_stay_on	    := 	"Up"
+key_stay_on	    := 	"alt"
 key_hold_mode	:= 	"Right"
 key_fastclick 	:= 	"Left"
 key_off		    := 	"Down"
@@ -24,8 +24,8 @@ key_hold	    :=	"XButton1"
 
 pixel_box	:=	5
 pixel_sens	:=	50
-pixel_color	:=	0xFEFE40
-tap_time	:=	150
+pixel_color	:=	0xF144FE
+tap_time	:=	100
 
 
 ;Credits: Robin0248?
