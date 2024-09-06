@@ -1,4 +1,4 @@
-#NoEnv 
+#NoEnv
 #persistent
 #MaxThreadsPerHotkey 2
 #KeyHistory 0
@@ -14,21 +14,19 @@ CoordMode, Pixel, Screen
 SoundBeep, 300, 200
 SoundBeep, 400, 200
 
-key_stay_on	    := 	"alt"
-key_hold_mode	:= 	"Right"
-key_fastclick 	:= 	"Left"
-key_off		    := 	"Down"
-key_gui_hide	:=	"Home"
-key_exit	    := 	"End"
-key_hold	    :=	"XButton1"
+key_stay_on	    := "alt"
+key_hold_mode	:= "Right"
+key_fastclick 	:= "Left"
+key_off		    := "Down"
+key_gui_hide	:= "Home"
+key_exit	    := "End"
+key_hold	    := "XButton1"
 
-pixel_box	:=	5
-pixel_sens	:=	50
-pixel_color	:=	0xF144FE
-tap_time	:=	90
+pixel_box	:= 3
+pixel_sens	:= 50
+pixel_colors := "0xF144FE,0x831E94"
+tap_time	:= 1
 
-
-;Credits: Robin0248?
 Gui,2:Font,Cdefault,Fixedsys
 Gui,2:Color,Black
 Gui,2:Color, EEAA99
@@ -43,10 +41,10 @@ Gui 2:+LastFound +ToolWindow +AlwaysOnTop -Caption
 WinSet, TransColor, EEAA99
 2Guiescape:
 2Guiclose:
-leftbound:= A_ScreenWidth/2-pixel_box
-rightbound:= A_ScreenWidth/2+pixel_box
-topbound:= A_ScreenHeight/2-pixel_box
-bottombound:= A_ScreenHeight/2+pixel_box 
+leftbound := A_ScreenWidth/2-pixel_box
+rightbound := A_ScreenWidth/2+pixel_box
+topbound := A_ScreenHeight/2-pixel_box
+bottombound := A_ScreenHeight/2+pixel_box
 hotkey, %key_stay_on%, stayon
 hotkey, %key_hold_mode%, holdmode
 hotkey, %key_off%, offloop
@@ -104,12 +102,12 @@ GuiControl,2: hide,C3
 return
 
 loop1:
-PixelSearch()
+PixelSearchMultiple()
 return
 
 loop2:
-While GetKeyState(key_hold, "P"){
-PixelSearch()
+While GetKeyState(key_hold, "P") {
+PixelSearchMultiple()
 }
 return
 
@@ -120,22 +118,26 @@ return
 #if toggle
 *~$LButton::
 sleep 100
-While GetKeyState("LButton", "P"){
+While GetKeyState("LButton", "P") {
 Click
 sleep 10
 }
 return
 #if
 
-PixelSearch() {
+PixelSearchMultiple() {
 global
-PixelSearch, FoundX, FoundY, leftbound, topbound, rightbound, bottombound, pixel_color, pixel_sens, Fast RGB
+Loop, Parse, pixel_colors, `,
+{
+PixelSearch, FoundX, FoundY, leftbound, topbound, rightbound, bottombound, %A_LoopField%, pixel_sens, Fast RGB
 If !(ErrorLevel)
 {
 If !GetKeyState("LButton")
 {
 click
 sleep %tap_time%
+}
+break
 }
 }
 return
